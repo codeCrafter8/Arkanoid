@@ -27,41 +27,35 @@ void Game::run(sf::RenderWindow &window) {
                 window.close();
         }
 
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Black);
 
         if (startDisplaying) {
             StartScreen startScreen(window);
-            startScreen.update(window);
-            window.draw(startScreen.spriteBackground);
             startScreen.draw(window);
+            startScreen.update(window);
             if (readingFromFile) {
-                startScreen.read_from_file();
+                startScreen.readFromFile();
                 readingFromFile = false;
             }
             if (startScreen.playClicked) {
                 startDisplaying = false;
                 gameDisplaying = true;
             }
-            if(startScreen.howToPlayClicked == true) {
+            if(startScreen.instruction.shown == true) {
                 startScreen.showInstruction(window);
-                window.draw(startScreen.rectInstruct);
-                window.draw(startScreen.InstructHowToPlay);
-                for (int i = 0; i < startScreen.numberOfInstructions; i++)
-                    window.draw(startScreen.instrArray[i]);
-                window.draw(startScreen.Cancel);
                 startScreen.update(window);
             }
             if (startScreen.highScoresClicked == true) {
                 startScreen.showHighScores(window);
                 window.draw(startScreen.rectHighScoresShow);
-                window.draw(startScreen.HighScoresShow);
+                window.draw(startScreen.highScoresShownText);
                 for (sf::RectangleShape rect : startScreen.rects) {
                     window.draw(rect);
                 }
                 for (sf::Text text : startScreen.scoresTexts) {
                     window.draw(text);
                 }
-                window.draw(startScreen.Cancel);
+                window.draw(startScreen.cancelText);
                 startScreen.update(window);
             }
         }

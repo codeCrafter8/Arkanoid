@@ -5,6 +5,7 @@
 #include<sstream>
 #include<vector>
 #include "Text.h"
+#include "Instruction.h"
 /**@brief Klasa zawierajaca pola i metody zwiazane z ekranem poczatkowym**/
 class StartScreen {
 	/**@brief wektor okreslajacy rozmiar przycisku "play" **/
@@ -40,21 +41,21 @@ public:
 	StartScreen(sf::RenderWindow& window);
 	sf::Texture background;
 	sf::Sprite spriteBackground;
-	sf::Text Arkanoid;
-	sf::Text Play;
-	sf::Text HowToPlay;
-	sf::Text InstructHowToPlay;
+	sf::Text arkanoidText;
+	sf::Text playText;
+	sf::Text howToPlayText;
+	sf::Text instructionHowToPlayText;
 	/**@brief tablica przechowujaca teksty instrukcji gry **/
-	sf::Text instrArray[10];
+	sf::Text instructionsArray[10];
 	/**@brief zmienna okreslajaca ilosc tekstow instrukcji gry **/
 	int numberOfInstructions = 10;
-	sf::Text Cancel;
-	sf::Text HighScores;
-	sf::Text HighScoresShow;
-	sf::Text HighScoresPlayer;
+	sf::Text cancelText;
+	sf::Text highScoresText;
+	sf::Text highScoresShownText;
+	sf::Text highScoresPlayerText;
 	/**@brief tablica przechowujaca teksty statystyk **/
 	sf::Text scoresTexts[6];
-	sf::Text CancelHighScores;
+	sf::Text cancelHighScoresText;
 	sf::RectangleShape rectPlay;
 	sf::RectangleShape rectHowToPlay;
 	sf::RectangleShape rectInstruct;
@@ -75,6 +76,7 @@ public:
 	/**@brief Metoda obslugujaca operacje przeprowadzone przez uzytkownika
 	* @param window - referencja na glowne okno programu
 	**/
+	Instruction instruction;
 	void update(sf::RenderWindow& window);
 	void draw(sf::RenderWindow& window);
 	/**@brief Metoda wyswietlajaca instrukcje gry
@@ -86,7 +88,7 @@ public:
 	**/
 	void showHighScores(sf::RenderWindow& window);
 	/**@brief Metoda sortujaca statystki graczy**/
-	void sort_statistics();
+	void sortStatistics();
 	/**@brief Metoda odczytujaca z pliku statystki graczy**/
-	void read_from_file();
+	void readFromFile();
 };

@@ -15,6 +15,7 @@
 #include "StartScreen.h"
 #include "ExtraPoints.h"
 #include "Bonus.h"
+#include "Instruction.h"
 /**@brief Klasa zawierajaca pola i metody zwiazane z programem
 * Klasa ta obsluguje cala gre
 **/
