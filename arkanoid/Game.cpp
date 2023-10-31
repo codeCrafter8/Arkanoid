@@ -33,13 +33,6 @@ void Game::run(sf::RenderWindow &window) {
             StartScreen startScreen(window);
             startScreen.update(window);
             window.draw(startScreen.spriteBackground);
-            /*window.draw(startScreen.Arkanoid);
-            window.draw(startScreen.rectPlay);
-            window.draw(startScreen.Play);
-            window.draw(startScreen.rectHowToPlay);
-            window.draw(startScreen.HowToPlay);
-            window.draw(startScreen.rectHighScores);
-            window.draw(startScreen.HighScores);*/
             startScreen.draw(window);
             if (readingFromFile) {
                 startScreen.read_from_file();
